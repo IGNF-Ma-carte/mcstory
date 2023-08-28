@@ -1,0 +1,66 @@
+/* Gestion de la liste * /
+[data-role="menu-tab"] .onglets .ol-order {
+  display: none;
+}
+[data-role="menu-tab"] .onglets i.fi-delete{
+  right: 1em;
+}
+/**/
+
+[data-role="menu-tab"] .onglets i.fi-repeat {
+  position: absolute;
+  top: 50%;
+  right: 3.5em;
+  transform: translateY(-50%);
+  padding: 0 0.3em;
+}
+
+[data-role="menu-tab"] .tab.onglet label {
+  font-size: 1.2em;
+}
+[data-role="menu-tab"] .tab.onglet input {
+  width: 100%;
+  font-size: 1.2em;
+}
+
+/* Edit form */
+[data-role="menu-tab"] .tab.onglet .edit,
+[data-role="menu-tab"] .tab.onglet .confirm,
+[data-role="menu-tab"] .tab.onglet .edit .create .update.button,
+[data-role="menu-tab"] .tab.onglet [data-mode="edit"] .division {
+  display: none;
+}
+[data-role="menu-tab"] .tab.onglet [data-mode="edit"] .edit, 
+[data-role="menu-tab"] .tab.onglet .edit .create .new.button {
+  display: block;
+}
+
+
+[data-role="menu-tab"] .division .list {
+  margin-bottom: 1em;
+}
+
+[data-role="menu-tab"] [data-mode="edit"] div{
+  padding-bottom: 1em;
+}
+[data-role="menu-tab"] .tab.onglet .create button {
+  width: auto;
+}
+
+[data-role="menu-tab"] .tab.onglet .buttons {
+  text-align: center;
+}
+[data-role="menu-tab"] .tab.onglet .buttons button {
+  width: auto; 
+  min-width: calc(50% - 1em);
+  margin: .3em;
+  display: inline-block;
+}
+[data-role="menu-tab"] .tab.onglet .confirm {
+  filter: grayscale(100%);
+  pointer-events: none;
+}
+[data-role="menu-tab"] .tab.onglet [data-valid] .confirm {
+  filter: none;
+  pointer-events: all;
+}

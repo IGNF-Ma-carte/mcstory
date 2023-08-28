@@ -1,0 +1,72 @@
+[data-role="menu-tab"] .miseenforme li > label {
+  margin: 0;
+}
+[data-role="menu-tab"] .miseenforme li {
+  margin: 0;
+}
+
+[data-role="menu-tab"] .category.popup,
+[data-role="menu-tab"] .category.position {
+  display: none;
+}
+
+[data-role="menu-tab"][data-modele = "volet"] .category.popup,
+[data-role="menu-tab"][data-modele = "photo"] .category.popup,
+[data-role="menu-tab"][data-modele = "differentiel"] .category.popup{
+  display:none;
+}
+
+[data-role="menu-tab"][data-modele = "volet"] .category.position,
+[data-role="menu-tab"][data-modele = "etape"] .category.position,
+[data-role="menu-tab"][data-modele = "photo"] .category.position,
+[data-role="menu-tab"][data-modele = "differentiel"] .category.position {
+  display: block;
+}
+[data-role="menu-tab"][data-modele = "etape"] .category.position .tips {
+  display: none;
+}
+
+[data-role= "menu-tab"] [data-show = "color"] .category.color i.icon:before,
+[data-role= "menu-tab"] [data-show = "position"] .category.position i.icon:before,
+[data-role= "menu-tab"] [data-show = "popup"] .category.popup i.icon:before {
+  content: "\e904";
+}
+
+[data-role= "menu-tab"] [data-show = "color"] .hidden.color,
+[data-role= "menu-tab"] [data-show = "position"] .hidden.position {
+    display: block;
+}
+
+[data-role= "menu-tab"] [data-show = "popup"] .hidden.popup {
+  display: block;
+}
+
+/* BULLES */
+[data-role="menu-tab"][data-modele="photo"]  li.popup,
+[data-role="menu-tab"][data-modele="volet"]  li.popup,
+[data-role="menu-tab"][data-modele="etape"] li.popup,
+[data-role="menu-tab"][data-modele="compare"] li.popup,
+[data-role="menu-tab"][data-modele="diapo"] li.popup,
+[data-role="menu-tab"][data-modele="standard"] li.popup {
+  display: block;
+}
+
+[data-role="menu-tab"] .color [data-attr="color"] {
+  display: none;
+}
+[data-role="menu-tab"] .color[data-theme="custom"] [data-attr="color"] {
+  display: block;
+}
+
+[data-role="menu-tab"] .color [data-attr="color"] > label {
+  display: inline-block;
+  padding: 1em 1em 1em 0;
+  width: 9em;
+  text-align: right;
+}
+
+[data-role="menu-tab"] .category .tips {
+  border-top: 0.1rem solid #dde1e6;
+  margin-top: 1em;
+  padding-top: 1em;
+}

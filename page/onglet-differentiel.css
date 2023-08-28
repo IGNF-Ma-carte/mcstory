@@ -1,0 +1,34 @@
+[data-role="menu-tab"] .tab.differentiel .color label {
+  min-width: 5em;
+  display: inline-block;
+  width: unset;
+  text-align: right;
+  margin-right: 1em;
+}
+
+[data-role="menu-tab"] .tab.differentiel input:disabled,
+[data-role="menu-tab"] .tab.differentiel input:disabled ~ span {
+  opacity: .5;
+}
+
+[data-role="menu-tab"] .tab.differentiel h3 {
+  color: #788089;
+  margin: 2em .5em .5em;
+}
+[data-role="menu-tab"] .tab.differentiel h3:first-of-type {
+  margin-top: 0;
+}
+
+.ol-ext-dialog.indicator ul {
+  list-style: none;
+  padding: 0;
+}
+.ol-ext-dialog.indicator label {
+  font-weight: 500;
+}
+.ol-ext-dialog.indicator input[type="text"] {
+  display: block;
+  max-width: 100%;
+  width: 25em;
+  margin: .5em 0 1em;
+}

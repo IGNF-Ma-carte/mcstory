@@ -1,0 +1,22 @@
+[data-role="menu-tab"] .tab.options h3 {
+  margin-top: 2em;
+}
+[data-role="menu-tab"] .tab.options h3:nth-of-type(1) {
+  margin-top: 0;
+}
+[data-role="menu-tab"] .tab.options li {
+  margin: .5em 0;
+}
+
+[data-role="menu-tab"] .tab.options > i {
+  padding: 0 1em;
+  display: block;
+}
+[data-role="menu-tab"] .tab.options sup {
+  cursor: help;
+  padding-right: .2em;
+  font-size: unset;
+}
+[data-role="menu-tab"] .tab.options select {
+  margin: 0;
+}

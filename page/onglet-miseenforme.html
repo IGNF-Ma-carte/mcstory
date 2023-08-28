@@ -1,0 +1,94 @@
+<div class="miseenforme" >
+  <h2 data-help="infoMiseEnForme small">
+    Mise en forme
+  </h2>
+  <div>
+    <ul class="accordion">
+      <!-- Color -->
+      <li class = "category color">
+        <input type="radio" name="miseenforme">
+        <label onclick="accordionCheck(this)">Couleur</label>
+        <div class = "color">
+          <label>Thème prédefini</label>
+          <select data-attr="theme"  placeholder="Thème"></select>
+          <div data-attr="color">
+            <label>Couleur du texte </label> <input data-attr="color-txt" /><br/>
+            <label>Couleur du fond </label> <input data-attr="color-back" /><br/>
+            <!-- <label>Couleur boutons</label> <input data-attr="color-txt" />-->
+          </div>
+        </div>
+      </li>
+      <!-- Volet -->
+      <li class="category position">
+        <input type="radio" name="miseenforme">
+        <label onclick="accordionCheck(this)">Volet</label>
+        <div class = "position">
+          <!--Onglet bulles en mode volet/photo/Etape-->
+          <div class = 'volet photo etape'>
+            <div>
+              <label class="large">Position</label>
+              <select data-attr="voletPosition">
+                <option value="left">Gauche</option>
+                <option value="right">Droite</option>
+              </select>
+            </div>
+            <div>
+              <label class="large">Taille maximale du volet</label>
+              <input data-type="zone" data-attr="voletWidth" type="number"/>
+            </div>
+          </div>
+          <!--Onglet bulles commun a tous les modes-->
+          <label class="tips ol-ext-check ol-ext-checkbox">
+            <input data-attr="tips:hover" type="checkbox"><span></span>
+            Résumé au survol
+          </label>
+        </div>
+      </li>
+      <!-- Popup -->
+      <li class="category popup">
+        <input type="radio" name="miseenforme">
+        <label onclick="accordionCheck(this)">Bulles</label>
+        <div class = "popup">
+          <div class ="standard diapo etape compare">
+            <div>
+              <label class="large" data-help="infoPopup small">Type de bulles</label>
+              <select data-type="zone"  data-attr="type">
+                <option value="default">Fond blanc</option>
+                <option value="black">Fond noir</option>
+                <option value="tooltips">Style étiquette</option>
+              </select>
+              <br/>
+            </div>
+            <div>
+              <label class="ol-ext-check  ol-ext-checkbox">
+                <input data-attr="anime" type="checkbox"><span></span>
+                Animée
+              </label>
+            </div>
+            <div>
+              <label class="ol-ext-check ol-ext-checkbox">
+                <input data-attr="closeBox" type="checkbox"><span></span>
+                Fermeture
+              </label>
+            </div>
+            <div>
+              <label class="ol-ext-check ol-ext-checkbox">
+                <input data-attr="shadow" type="checkbox"><span></span>
+                Ombre
+              </label>
+            </div>
+            <div>
+              <label class="large">Taille max</label>
+              <input class="small" data-attr="maxHeight" placeholder="Hauteur max" type="number"/> x <input class="small" data-attr="maxWidth" placeholder="Largeur max" type="number"/> px
+            </div>
+          </div>
+          <!--Onglet bulles commun a tous les modes-->
+          <label class="tips ol-ext-check ol-ext-checkbox">
+            <input data-attr="tips:hover" type="checkbox"><span></span>
+            Résumé au survol
+          </label>
+        </div>
+      </li>
+    </ul>
+  <div>
+</div>

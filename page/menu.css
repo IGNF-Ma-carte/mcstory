@@ -1,0 +1,41 @@
+[data-role="menu-tab"] .tab ul {
+  list-style: none;
+  padding: 0;
+}
+
+[data-role="menu-tab"] .menu .steps,
+[data-role="menu-tab"] .menu .onglet,
+[data-role="menu-tab"] .menu .differentiel  {
+  display: none;
+}
+[data-role="menu-tab"][data-modele="etape"] .menu .steps ,
+[data-role="menu-tab"][data-modele="onglet"] .menu .onglet{
+  display: block;
+}
+
+[data-role="menu-tab"][data-modele="onglet"] .menu .carte,
+[data-role="menu-tab"][data-modele="onglet"] .menu .options {
+  display: none;
+}
+
+
+[data-role="menu-tab"][data-modele="differentiel"] .menu .differentiel{
+  display: block;
+}
+
+/* List */
+[data-role="menu-tab"] .ol-collection-list ul {
+  cursor: pointer;
+}
+[data-role="menu-tab"] .ol-collection-list li {
+  position: relative;
+  padding: .5em;
+  border-bottom: 1px solid #999;;
+}
+
+[data-role="menu-tab"] .ol-collection-list li:hover {
+  background-color: #eee;
+}
+[data-role="menu-tab"] .ol-collection-list li.ol-select {
+  background-color: #7EB9F7;
+}

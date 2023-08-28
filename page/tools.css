@@ -1,0 +1,34 @@
+#tools {
+   position: fixed;
+   top:3em;
+   right: 0;
+   height: 3em;
+   left: 0;
+   box-sizing: border-box;
+   background-color:white;
+   text-align: right;
+}
+ 
+ #tools i {
+   font-size: 2em; 
+   color: #888;
+   padding: .25em .15em;
+   border-bottom: 1px solid #888;
+   margin: 0 .1em;
+   cursor: pointer;
+   width: 1em;
+   text-align: center;
+   cursor: pointer;
+}
+
+#exit {
+   position: fixed;
+   display: none;
+   top: 1em;
+   right: 1em;
+   background-color: lightgray;
+   color: black;
+   border: none;
+   z-index: 999;
+}
+ 

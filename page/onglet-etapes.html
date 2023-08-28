@@ -1,0 +1,44 @@
+<!-- mode liste -->
+<div  class= "etapes">
+  <h2 data-help="infoSteps small">
+    Etapes
+  </h2>
+  
+  <ul class="division">
+    <li>
+      <button class="button button-colored" data-attr="newStep">
+        Ajouter une etape
+      </button>
+      <div class="list"></div>
+    </li>
+    <li>
+      <label class="ol-ext-check ol-ext-checkbox">  
+        <input data-attr="animation" type="checkbox"><span></span>
+        Animer entre les étapes
+      </label>
+    </li>  
+  </ul>
+  
+  <!-- mode edition -->
+  <div class="edit">
+    <ul >
+      <li>
+        <label  class="ol-ext-check ol-ext-checkbox">
+          <input data-attr="displayTitle" type="checkbox"><span></span>
+          afficher le titre
+        </label>
+        <input placeholder="titre" data-attr="title" type="text"/>
+      </li>
+      
+      <li>
+        <textarea placeholder="contenu"></textarea>
+      </li>
+      <li class="buttons">
+        <button class="button button-colored" data-attr="confirm">Valider étape</button>
+        <button class="button button-ghost" data-attr="annule">Annuler</button>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+

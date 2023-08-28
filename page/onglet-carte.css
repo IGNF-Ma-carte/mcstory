@@ -1,0 +1,100 @@
+[data-role="menu-tab"] .carte .carte2 {
+  display: none;
+}
+
+[data-role="menu-tab"][data-modele="compare"] .carte .carte2,
+[data-role="menu-tab"][data-modele="compareVisio"] .carte .carte2  {
+  display: block;
+}
+[data-role="menu-tab"] .carte li p {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+[data-role="menu-tab"] .carte li p:before {
+  content: "\e915";
+  font-family: font-ign;
+  vertical-align: text-bottom;
+  padding-right: .2em;
+  font-weight: normal;
+  opacity: .8;
+}
+
+[data-role="menu-tab"] .carte button {
+  width: 80%;
+}
+[data-role="menu-tab"] .carte .carte1 [data-attr="subTitle"] {
+  display: none;
+} 
+
+[data-role="menu-tab"][data-modele = "compare"] .carte .carte1 [data-attr="subTitle"],
+[data-role="menu-tab"][data-modele = "compareVisio"] .carte .carte1 [data-attr="subTitle"]{
+  display: block;
+}
+
+[data-role="menu-tab"] .carte .fi-repeat {
+  font-size: 1.5em;
+  float: right;
+  line-height: 2em;
+  margin: 0;
+  display: none;
+}
+[data-role="menu-tab"] .carte .fi-repeat:hover {
+  color: #3993f3;
+}
+
+[data-role="menu-tab"] .carte [data-carte="1"] .fi-repeat {
+  display: block;
+}
+
+.ol-ext-dialog.list-model form {
+  width: 40em;
+}
+.ol-ext-dialog.list-model .mc-list-info,
+.ol-ext-dialog.list-model ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: calc(50% - 0.5em);
+  display: inline-block;
+  border: 1px solid #999;
+  height: 20em;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.ol-ext-dialog.list-model ul li {
+  min-height: unset;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.25em 0.5em;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+}
+.ol-ext-dialog.list-model ul li.mc-select {
+  background-color: #e1eefd;
+}
+.ol-ext-dialog.list-model .mc-list-info {
+  margin-left: 1em;
+  text-align: left;
+  padding: 0.5em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+.ol-ext-dialog.list-model .mc-list-info h4 {
+  margin: 0;
+}
+.ol-ext-dialog.list-model .mc-list-info img {
+  max-height: 6em;
+  display: block;
+  margin: .5em auto;
+}
+
+.ol-ext-dialog.alert.no-connect .ol-content a.article {
+  float: right;
+  min-width: 6em;
+  line-height: 2em;
+  margin: .5em;
+}

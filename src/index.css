@@ -1,0 +1,77 @@
+[data-role="menu-tab"] .button {
+  display: block;
+  position: relative;
+  align-content: center;
+  margin: .6em auto;
+  width: 70%;
+  height: 3em;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 2em;
+}
+
+[data-role="menu-tab"] label  {
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+  color: #788089;
+  width: 100%;
+  margin: .1em 0;
+}
+[data-role="menu-tab"] .tab.popup label span ,
+[data-role="menu-tab"] .tab.display label span,
+[data-role="menu-tab"] .tab.share label span{
+  font-size: 1.5em;
+  float: right;
+}
+[data-role="menu-tab"] li{
+  margin: 1em;
+  list-style: none;
+}
+
+[data-role="menu-tab"] .parameter li {
+  font-size: 1.2em;
+  margin: 0.5em; 
+}
+
+
+.ol-ext-check span {
+  color: #3993f3;
+}
+
+.ol-ext-toggle-switch  span {
+  width: 1.6em;
+}
+
+[data-role="menu-tab"] select {
+  width: 100%;
+  margin: 0.3em;
+}
+
+[data-role="menu-tab"] li .large {
+  display: block;
+}
+
+[data-role="menu-tab"] input.small {
+  width: 25%;
+}
+
+[data-role="menu-tab"] h1 {
+  font-size: 1.8em;
+}
+
+[data-role="menu-tab"] textarea {
+  min-width: 100%;
+  max-width: 100%;
+  height: 7em;
+  box-sizing: border-box;
+}
+
+[data-role="menu-tab"] i {
+  cursor: pointer;
+}
+
+[data-role="menu-tab"] h2 {
+font-size: 2rem;
+}
+

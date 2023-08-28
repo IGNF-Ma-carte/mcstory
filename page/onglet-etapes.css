@@ -1,0 +1,47 @@
+[data-role="menu-tab"] .tab.steps .edit {
+  display: none;
+} 
+[data-role="menu-tab"] .tab.steps [data-mode="edit"] .division {
+  display: none;
+}
+[data-role="menu-tab"] .tab.steps [data-mode="edit"] .edit {
+  display: block;
+}
+[data-role="menu-tab"] .tab.steps [data-mode="edit"] .edit input[type="text"] {
+  width: 100%;
+  margin: 1em 0 0;
+}
+
+[data-role="menu-tab"] .tab i.fi-delete{
+  position: absolute;
+  top: 50%;
+  right: 2em;
+  transform: translateY(-50%);
+  padding: 0 0.3em
+}
+
+[data-role="menu-tab"] .ol-collection-list div {
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 3em;
+}
+
+[data-role="menu-tab"] .ol-collection-list li {
+ margin: 0;
+  padding: .5em 0.5em;
+}
+
+[data-role="menu-tab"] .ol-noscroll.ol-order {
+  margin: 0;
+}
+
+[data-role="menu-tab"] .tab.steps .buttons {
+  text-align: center;
+}
+[data-role="menu-tab"] .tab.steps .buttons button {
+  width: auto;
+  min-width: calc(50% - 1em);
+  margin: 0.3em;
+  display: inline-block;
+}

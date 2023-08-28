@@ -1,0 +1,46 @@
+[data-role="menu-tab"] .hidden.title input,
+[data-role="menu-tab"] .compare.subtitle >input{
+    margin-bottom:0.5em;
+  }
+  
+  [data-role="menu-tab"] .link ,
+  [data-role="menu-tab"] .galerie {
+    display: none;
+}
+
+[data-role="menu-tab"] [data-logo="link"] .link {
+    display: inline-block;
+}
+
+[data-role="menu-tab"] [data-logo="galery"] .galerie {
+  display: block;
+}
+
+[data-role="menu-tab"] .previewDesc {
+  float: right;
+  color: grey;
+}
+
+[data-role= "menu-tab"] .hidden.title {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+[data-role= "menu-tab"] [data-show = "title"] .hidden{
+  opacity: 1;
+  display: block;
+  height:fit-content;
+  pointer-events: unset;
+}
+
+[data-role="menu-tab"][data-modele="compare"] .hidden.title.sub{
+  display: none;
+}
+
+[data-role="menu-tab"][data-modele="compare"] .compare.subtitle{
+  display: block;
+}
+
+[data-role="menu-tab"] .compare.subtitle{
+  display: none;
+}
