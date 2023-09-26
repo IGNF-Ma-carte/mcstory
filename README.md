@@ -1,6 +1,12 @@
 # mcstory
 *Macarte storymap app*
 
+![](https://img.shields.io/github/v/release/IGNF-Ma-carte/mcstory)
+![](https://img.shields.io/github/stars/IGNF-Ma-carte/mcstory)
+![](https://img.shields.io/github/commit-activity/m/IGNF-Ma-carte/mcstory)
+![](https://img.shields.io/github/contributors/IGNF-Ma-carte/mcstory)
+![](https://img.shields.io/github/license/IGNF-Ma-carte/mcstory)
+
 Outil de création de cartes narratives pour Ma carte
 
 ## Installation et développement
