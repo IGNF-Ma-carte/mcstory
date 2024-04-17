@@ -4,6 +4,7 @@ import dialog from 'mcutils/dialog/dialog';
 import _T from 'mcutils/i18n/i18n'
 import md2html from 'mcutils/md/md2html';
 import story from "./story";
+import organization  from 'mcutils/api/organization';
 
 // Prevent unload
 let dirty = false;
@@ -51,6 +52,40 @@ charte.canLogout = () => {
     return false;
   }
   return true
+}
+
+/* Check organization before changing */
+organization.canChange = (orga) => {
+  const atlas = story.get('atlas')
+  const current = (atlas || {}).organization_id || '';
+  // Test changes 
+  if (current !== orga.public_id) {
+    // Something has changed or reload
+    if (dirty) {
+      dialog.show({
+        className: 'alert',
+        content: md2html(_T('hasChanged')),
+        buttons: { ok: 'Quitter la page', cancel: 'Rester sur la page' },
+        onButton: (b) => {
+          if (b === 'ok') {
+            dirty = false;
+            organization.set(orga, true);
+            setTimeout(() => {
+              location.reload()
+            }, 100)
+          }
+        }
+      })
+    } else {
+      setTimeout(() => {
+        location.reload()
+      }, 100)
+      return true;
+    }
+    return false;
+  } else {
+    return true;
+  }
 }
 
 /** Story has changed
