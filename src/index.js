@@ -9,7 +9,7 @@ import './index.css'
 import './tools/tools'
 import './menu/menu'
 
-charte.setApp('narration', 'Ma carte');
+charte.setApp('narration', 'Ma carte', ['editor', 'owner']);
 
 /* DEBUG */
   window.story = story;

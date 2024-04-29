@@ -4,7 +4,7 @@ import dialog from 'mcutils/dialog/dialog';
 import _T from 'mcutils/i18n/i18n'
 import md2html from 'mcutils/md/md2html';
 import story from "./story";
-import organization  from 'mcutils/api/organization';
+import team  from 'mcutils/api/team';
 
 // Prevent unload
 let dirty = false;
@@ -54,12 +54,12 @@ charte.canLogout = () => {
   return true
 }
 
-/* Check organization before changing */
-organization.canChange = (orga) => {
+/* Check team before changing */
+team.canChange = (t) => {
   const atlas = story.get('atlas')
   const current = (atlas || {}).organization_id || '';
   // Test changes 
-  if (current !== orga.public_id) {
+  if (current !== t.public_id) {
     // Something has changed or reload
     if (dirty) {
       dialog.show({
@@ -69,7 +69,7 @@ organization.canChange = (orga) => {
         onButton: (b) => {
           if (b === 'ok') {
             dirty = false;
-            organization.set(orga, true);
+            team.set(t, true);
             setTimeout(() => {
               location.reload()
             }, 100)
