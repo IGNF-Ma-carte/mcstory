@@ -9,10 +9,12 @@ import openCarteDlg from 'mcutils/dialog/openCarte';
 import dialogMessage from 'mcutils/dialog/dialogMessage';
 
 import loadModels from './loadModels.js'
+import api from 'mcutils/api/api';
 
 import '../../page/onglet-carte.css';
 import ongletcarte from '../../page/onglet-carte.html';
-import api from 'mcutils/api/api';
+import '../../page/layer-dialog.css';
+import layerDlg from '../../page/layer-dialog.html';
 
 const menu = document.querySelector('[data-role="menu-tab"]');
 
@@ -114,7 +116,7 @@ ongletCarte.querySelectorAll('i.fi-repeat').forEach((elt, i) => {
 });
 
 /* Bouton pour charger une carte ou deux en mode 'compare' */
-const carteBtn = ongletCarte.querySelectorAll('BUTTON');
+const carteBtn = ongletCarte.querySelectorAll('BUTTON.map');
 
 /* Click sur le bouton de la carte 1 */
 carteBtn[0].addEventListener('click', () => {
@@ -137,6 +139,80 @@ carteBtn[0].addEventListener('click', () => {
 
 /* Carte 2 */
 carteBtn[1].addEventListener('click', () => loadCarte(2));
+
+/* Choose carte layers */
+const layersBtn = ongletCarte.querySelectorAll('BUTTON.layers');
+layersBtn.forEach((b, i) => {
+  b.addEventListener('click', () => {
+    // Update old maps
+    if (!story.get('compareLayer')) story.set('compareLayer', [false, false]);
+    // Current carte
+    const carte = story.getCarte(i);
+    if (carte) {
+      const layers = story.get('compareLayer')[i];
+      dialog.show({
+        title: 'Calques à afficher',
+        className: 'layerDialog',
+        content: layerDlg,
+        buttons: { submit: 'ok', cancel: 'annuler' },
+        onButton: (b, inputs) => {
+          if (b !== 'submit') return;
+          dialog.hide();
+          // Update layers
+          let layersIds = false;
+          if (inputs.custom.checked) {
+            layersIds = [];
+            content.querySelectorAll('li').forEach(li => {
+              if (li.querySelector('input').checked) {
+                layersIds.push(parseInt(li.dataset.layerId))
+              }
+            })
+          }
+          story.get('compareLayer')[i] = layersIds;
+          if (layersIds) {
+            carte.getMap().getLayers().forEach(l => {
+              l.setVisible(layersIds.indexOf(l.get('id')) > -1)
+            })
+          }
+        }
+      })
+      const content = dialog.getContentElement()
+      // Custom layers
+      const check = content.querySelector('input[type="checkbox"]')
+      if (layers) {
+        check.checked = layers;
+        content.classList.add('custom')
+      } else {
+        content.classList.remove('custom')
+      }
+      check.addEventListener('change', () => {
+        if (check.checked) {
+          content.classList.add('custom')
+        } else {
+          content.classList.remove('custom')
+        }
+      })
+      // Layers
+      const ul = content.querySelector('ul')
+      carte.getMap().getLayers().getArray().slice().reverse().forEach(l => {
+        const li = element.create('LI', {
+          parent: ul
+        })
+        element.createCheck({
+          after: l.get('title'),
+          checked: layers ? layers.indexOf(l.get('id')) > -1 : l.getVisible(),
+          parent: li
+        })
+        li.dataset.layerId = l.get('id')
+      })
+    }
+  })
+})
+story.on('change:carte', e => {
+  const layers = story.get('compareLayer') || [false, false];
+  layers[e.index] = false;
+})
+
 
 /* Mettre a jour lors d'un chargemnt * /
 story.on('read', () => {

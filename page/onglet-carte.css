@@ -21,8 +21,17 @@
   opacity: .8;
 }
 
-[data-role="menu-tab"] .carte button {
-  width: 80%;
+[data-role="menu-tab"] .carte .buttons {
+  text-align: center;
+}
+[data-role="menu-tab"] .carte button.map {
+  width: calc(100% - 3em);
+  display: inline-block;
+}
+[data-role="menu-tab"] .carte button.layers {
+  width: 3em;
+  min-width: unset;
+  display: none;
 }
 [data-role="menu-tab"] .carte .carte1 [data-attr="subTitle"] {
   display: none;
@@ -46,6 +55,10 @@
 
 [data-role="menu-tab"] .carte [data-carte="1"] .fi-repeat {
   display: block;
+}
+[data-role="menu-tab"][data-modele="compare"] .carte [data-carte="1"] .layers,
+[data-role="menu-tab"][data-modele="compareVisio"] .carte [data-carte="1"] .layers {
+  display: inline-block;
 }
 
 .ol-ext-dialog.list-model form {
