@@ -1,3 +1,9 @@
+.ol-ext-dialog.layerDialog form {
+  max-width: 40em;
+}
+.ol-ext-dialog.layerDialog .ol-content > label {
+  margin-left: 1em;
+}
 .ol-ext-dialog.layerDialog ul {
   list-style: none;
   padding: 0;
@@ -5,7 +11,7 @@
   border-left: 5px solid #ccc;
   pointer-events: none;
   cursor: not-allowed;
-  margin: .5em 1em;
+  margin: .5em 1em .5em 3em;
 }
 .ol-ext-dialog.layerDialog ul li {
   padding: .25em 0;
