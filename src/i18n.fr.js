@@ -40,6 +40,21 @@ Choisissez ici la ou les cartes sur lesquelles vous voulez raconter une histoire
 :fa-warning:2x left:#f18345: Vous devez au préalable avoir créer une carte avec le module d'édition (choisir les fonds et ajouté des données).
 C'est cette carte qui servira de support à votre histoire.
 `,
+infoNoStep: `# Ne pas afficher les étapes
+----
+Vous pouvez masquer les étapes. Dans ce cas, il n'est plus possible de changer d'étape avec les flèches de direction.
+Vous devez inclure des lien \`app://stepTo?numero_etape\` pour passer à une étape précise, sous la forme : 
+\`\`\`md
+[Aller à l'étape 3]&lpar;app://stepTo?2 étape 3)
+\`\`\`
+Vous pouvez également utiliser un mot clé pour aller à l'étape suivante (next), précédente (prev) ou la première étape (first) ou la dernière (last).
+\`\`\`md
+[Retour au début]&lpar;app://stepTo?first recommncer)
+[Etape précédente]&lpar;app://stepTo?prev précédent)
+[Etape suivante]&lpar;app://stepTo?next suivant)
+[Aller à la fin]&lpar;app://stepTo?last fin)
+\`\`\`
+`,
 infoModele: `# Raconter une histoire
 ----
 Vous pouvez choisir une mode de narration parmis un pannel de modèles proposant chacun une expérience interactive différente.

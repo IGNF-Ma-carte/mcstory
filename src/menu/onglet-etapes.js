@@ -14,13 +14,20 @@ import element from 'ol-ext/util/element'
 /* Ajout onglet au Menu */
 const ongletEtapes = element.create('DIV', { className: 'etape', html: html });
 charte.addMenuTab('steps', 'fi-step', 'Etapes', ongletEtapes);
-var anim;
 
 /* bouton animation */
 const checkAnim = ongletEtapes.querySelector("[data-attr = 'animation']")
 checkAnim.addEventListener('change',(e) => {
-  anim = e.target.checked; 
-  story.set('animStep', anim);
+  story.set('animStep', e.target.checked);
+});
+
+/* bouton noStep */
+const checkNoStep = ongletEtapes.querySelector("[data-attr = 'noStep']")
+checkNoStep.addEventListener('change',(e) => {
+  story.set('noStep', e.target.checked);
+  // Update model
+  story.setModel();
+  story.setStep();
 });
 
 /*Bouton affichage titre*/
@@ -129,7 +136,7 @@ function updateStep(step) {
   step.zoom = zoom;
 
   stepsInput.refresh();
-  setTimeout(() => story.setStep(position, anim))
+  setTimeout(() => story.setStep(position, story.get('animStep')))
   story.freezeStep(false);
   story.getCarte().showControl('layerSwitcher', story.getProperties().controls.layerSwitcher)
   return position;
@@ -179,14 +186,14 @@ const stepsInput = new InputCollection({
         let pos = story.getSteps().getArray().indexOf(item);
         elem.remove();
         story.getSteps().removeAt(pos);
-        if (pos === story.currentStep) story.setStep(pos-1, anim);
+        if (pos === story.currentStep) story.setStep(pos-1, story.get('animStep'));
         if(story.getSteps().getLength() == 0) story.setStep();
 
         notification.cancel('Une étape à été supprimée...', () => {
           story.getSteps().insertAt(pos, item);
           story.currentStep = pos;
           notification.hide();
-          story.setStep(pos, anim);
+          story.setStep(pos, story.get('animStep'));
         });
       },
       parent: elem
@@ -199,12 +206,11 @@ const stepsInput = new InputCollection({
 stepsInput.on('item:select', (e) => {
   if(e.position >= 0){
    // console.log(e.position)
-    story.setStep(e.position, anim);
+    story.setStep(e.position, story.get('animStep'));
   }
 });
 stepsInput.on('item:order', (e) => {
-  console.log(e.position)
-  story.setStep(e.position, anim);
+  story.setStep(e.position, story.get('animStep'));
 });
 stepsInput.on('item:dblclick', (e) => {
   story.setStep(e.position, false);
@@ -218,7 +224,12 @@ story.on('change:step', (e) => {
 
 /* CHARGEMENT */
 story.on('read', () => {
-  checkAnim.checked = anim = story.get('animStep');
+  // default anim step
+  if (story.get('animStep') === undefined) {
+    story.set('animStep', true);
+  }
+  checkAnim.checked = story.get('animStep');
+  checkNoStep.checked = story.get('noStep');
   showtitle.checked = true;
   ongletEtapes.setAttribute('data-show', 'title');
   // Show first step
