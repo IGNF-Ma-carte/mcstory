@@ -27,7 +27,7 @@ checkNoStep.addEventListener('change',(e) => {
   story.set('noStep', e.target.checked);
   // Update model
   story.setModel();
-  story.setStep();
+  story.setStep(story.currentStep);
 });
 
 /*Bouton affichage titre*/
