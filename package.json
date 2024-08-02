@@ -9,10 +9,10 @@
     "lint": "eslint --fix ./src/**/*.js --ignore-path .lintignore || exit 0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
     "@parcel/transformer-inline-string": "^2.11.0",
     "@parcel/transformer-sass": "^2.11.0",
     "buffer": "^6.0.3",
+    "eslint": "^7.32.0",
     "parcel": "^2.11.0",
     "parcel-reporter-static-files-copy": "^1.5.3",
     "process": "^0.11.10"
