@@ -1,6 +1,7 @@
 {
   "server": "https://qlf-macarte.ign.fr/",
   "server-1": "https://macarte.mut-dev.ign.fr/",
+  "server-2": "https://localhost.ign.fr/macartegpf-api/",
   "viewer": "https://ignf-ma-carte.github.io/mcviewer/?map=$ID&$NOTITLE",
   "gppKey": "0gd4sx9gxx6ves3hf3hfeyhw",
   "edugeoKey": "1mgehldv90vifl6s5ksf900i"

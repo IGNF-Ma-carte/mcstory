@@ -2,10 +2,11 @@ import { transformExtent } from 'ol/proj'
 import dialog from 'mcutils/dialog/dialog';
 import dialogMessage from 'mcutils/dialog/dialogMessage';
 import _T from 'mcutils/i18n/i18n'
-import saveCarteDialog from 'mcutils/dialog/saveCarte';
+import saveCarteDialog, { checkShare, checkStoryShare } from 'mcutils/dialog/saveCarte';
 import story from '../story';
 import notification from 'mcutils/dialog/notification';
 import api from 'mcutils/api/api';
+import team from 'mcutils/api/team';
 
 /* Sauvegarde carte */
 function save(story) {
@@ -38,6 +39,14 @@ function save(story) {
         story.set('id', story.get('atlas').view_id)
       }
       story.dispatchEvent({ type: 'save' })
+      // Check cartes / share
+      if (team.getId()) {
+        if (story.cartes.length) {
+          checkShare(story.get('atlas').share, story.cartes)
+        } else {
+          checkStoryShare(story)
+        }
+      }
     }
   }
   // SaveAs
