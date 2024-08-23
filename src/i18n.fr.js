@@ -114,6 +114,15 @@ Vous pouvez choisir d'afficher une liste de couches sur lesquelles faire la sél
 Vous pouvez également définir des attributs (indicateurs) qui sera transmis à la fiche pour conditionner son affichage.
 Les indicateurs sont des valeurs séparées par des virgules. Vous pouvez alors accéder à la valeur de l'indicateur dans la fiche via la variable \`%INDICATOR%\` ou \`%INDICATOR=valeur%\`.
 `,
+helpStyleSheet: `
+# Ajouter une feuille de style
+----
+*Ajouter dus tyle à vos carte*
+
+Vous pouvez ajouter une feuille de style au [format Sass](https://fr.wikipedia.org/wiki/Sass_%28langage%29) qui s'appliquera à vos carte.
+Cela vous permet de modifier la couleur, la forme, la police de caractère des élements de la carte (voir son comportement).
+Attention, néanmoins, une mauvaise utilisation peut engendrer des comportements non prévus qui peuvent gèner l'utilisation de la carte au final.
+`,
 	infoShare: `# Partage`,
 	loadCarte: `Charger une carte`,
 	newCarte: `Créer une nouvelle carte`,

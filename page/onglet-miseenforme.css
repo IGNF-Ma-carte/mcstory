@@ -70,3 +70,42 @@
   margin-top: 1em;
   padding-top: 1em;
 }
+[data-role="menu-tab"] [data-attr="css"] button {
+  width: auto;
+}
+
+/* Dialog */
+.ol-ext-dialog.dialogCSS select {
+  float: right;
+  padding: 0.1em .2em;
+  font-size: 1em;
+  width: 6.5em;
+}
+.ol-ext-dialog.dialogCSS select option:first-child {
+  display: none;
+}
+
+.ol-ext-dialog.dialogCSS p {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}
+
+.ol-ext-dialog.dialogCSS textarea {
+  width: 60em;
+  height: 20em;
+  max-width: 100%;
+  min-height: 5em;
+  max-height: calc(100vh - 15em);
+  max-height: calc(100dvh - 15em);
+  display: block;
+  font-size: 1em;
+}
+.ol-ext-dialog.dialogCSS pre[aria-hidden="true"] {
+  display: none;
+}
+.ol-ext-dialog.dialogCSS pre {
+  line-height: 1em;
+  display: block;
+}

@@ -1,13 +1,43 @@
 import element from 'ol-ext/util/element'
 import { layout } from 'mcutils/layout/layout'
+import dialog from 'mcutils/dialog/dialog';
+import { helpData } from 'mcutils/dialog/helpDialog';
 
 import story from '../story';
 import charte from 'mcutils/charte/macarte'
 import colorPicker from 'ol-ext/util/input/Color'
 import _T from 'mcutils/i18n/i18n';
+import { i18n } from 'mcutils/i18n/i18n';
 
 import '../../page/onglet-miseenforme.css'
 import html from '../../page/onglet-miseenforme.html';
+import dlogCSS from '../../page/css-dialog.html';
+
+/* Examples */
+i18n.set('fr', {
+  cssColor: `// variables scss
+$primary-color: #369;
+$back-color: #ccf;
+
+color: $primary-color;
+background-color: $back-color;
+.title > img {
+  color: $back-color;
+}
+`,
+cssMarianne: `// Font definition
+@font-face { font-family: Marianne; font-style: normal; font-weight: 300; src: url(./fonts/Marianne-Light.woff2) format("woff2"),url(./fonts/Marianne-Light.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 300; src: url(./fonts/Marianne-Light_Italic.woff2) format("woff2"),url(./fonts/Marianne-Light_Italic.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: normal; font-weight: 400; src: url(./fonts/Marianne-Regular.woff2) format("woff2"),url(./fonts/Marianne-Regular.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 400; src: url(./fonts/Marianne-Regular_Italic.woff2) format("woff2"),url(./fonts/Marianne-Regular_Italic.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: normal; font-weight: 500; src: url(./fonts/Marianne-Medium.woff2) format("woff2"),url(./fonts/Marianne-Medium.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 500; src: url(./fonts/Marianne-Medium_Italic.woff2) format("woff2"),url(./fonts/Marianne-Medium_Italic.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: normal; font-weight: 700; src: url(./fonts/Marianne-Bold.woff2) format("woff2"),url(./fonts/Marianne-Bold.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 700; src: url(./fonts/Marianne-Bold_Italic.woff2) format("woff2"),url(./fonts/Marianne-Bold_Italic.woff) format("woff") }
+
+font-family: Marianne;
+`
+});
 
 /* Ajout onglet au Menu */
 const ongletMEF = element.create('DIV', { html: html });
@@ -128,7 +158,43 @@ hoverAttributes.forEach(v => {
     })
   }))    
 })
- 
+
+
+// Stylesheet
+ongletMEF.querySelector('[data-attr="css"] button').addEventListener('click', () => {
+  dialog.show({
+    content: dlogCSS,
+    className: 'dialogCSS',
+    buttons: { ok: 'ok', cancel: 'annuler' },
+    onButton: (b, inputs) => {
+      if (b==='ok') {
+        const err = story.setStyleSheet(inputs.css.value);
+        if (err) {
+          dialog.show();
+          const mes = err.message.split('\n')
+          mes.pop();
+          content.querySelector('.error').innerHTML = mes.join('<br/>')
+          content.querySelector('.error').ariaHidden = false;
+        }
+      }
+    }
+  })
+  const content = dialog.getContentElement()
+  helpData(content);
+  // Story value
+  content.querySelector('.css').value = story.get('css') || '';
+  // Exmaples
+  content.querySelectorAll('select option').forEach(o => {
+    o.value = _T(o.value)
+  })
+  content.querySelector('select').addEventListener('change', e => {
+    content.querySelector('textarea').value = e.target.value.replace(/\\n/g,"\n");
+    // reset
+    e.target.value = ""
+  })
+})
+
+
 /* CHARGEMENT */
 story.on('read', () => {
   // Layout
