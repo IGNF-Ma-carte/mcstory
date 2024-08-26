@@ -117,11 +117,19 @@ Les indicateurs sont des valeurs séparées par des virgules. Vous pouvez alors 
 helpStyleSheet: `
 # Ajouter une feuille de style
 ----
-*Ajouter dus tyle à vos carte*
+*Ajouter du style à vos carte*
 
-Vous pouvez ajouter une feuille de style au [format Sass](https://fr.wikipedia.org/wiki/Sass_%28langage%29) qui s'appliquera à vos carte.
-Cela vous permet de modifier la couleur, la forme, la police de caractère des élements de la carte (voir son comportement).
+Vous pouvez ajouter une feuille de style au [format CSS](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade) qui s'appliquera à vos carte.
+Cela vous permet de modifier la couleur, la forme, la police de caractère des élements de la carte (utiliser le menu pour avoir des exemples dans la boîte de dialogue).
 Attention, néanmoins, une mauvaise utilisation peut engendrer des comportements non prévus qui peuvent gèner l'utilisation de la carte au final.
+
+Vous pouvez utiliser les selecteurs \`story\` pour appliquer le style à la fenêtre de carte, \`dialog\` pour ne l'appliquer qu'aux dialogues ou \`body\` pour l'appliquer aux deux.
+\`\`\`CSS
+/* Afficher le texte en rouge (carte et dialogues) */
+body {
+  color: red;
+}
+\`\`\`
 `,
 	infoShare: `# Partage`,
 	loadCarte: `Charger une carte`,

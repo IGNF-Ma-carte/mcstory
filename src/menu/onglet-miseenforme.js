@@ -15,28 +15,40 @@ import dlogCSS from '../../page/css-dialog.html';
 
 /* Examples */
 i18n.set('fr', {
-  cssColor: `// variables scss
-$primary-color: #369;
-$back-color: #ccf;
-
-color: $primary-color;
-background-color: $back-color;
-.title > img {
-  color: $back-color;
+  cssColor: `/* Titres en rouge sur fond noir + bords blancs */
+story .title {
+  color: #800;
+  text-shadow: 1px 1px #fff, 1px -1px #fff, -1px 1px #fff, -1px -1px #fff;
+  background-color: #000;
+}
+story .title h1,
+story .title h2 {
+  padding-left: 2px;
+}
+/* Couleur de fond du logo */
+story .title > img {
+  color: #000;
 }
 `,
 cssMarianne: `// Font definition
-@font-face { font-family: Marianne; font-style: normal; font-weight: 300; src: url(./fonts/Marianne-Light.woff2) format("woff2"),url(./fonts/Marianne-Light.woff) format("woff") }
-@font-face { font-family: Marianne; font-style: italic; font-weight: 300; src: url(./fonts/Marianne-Light_Italic.woff2) format("woff2"),url(./fonts/Marianne-Light_Italic.woff) format("woff") }
-@font-face { font-family: Marianne; font-style: normal; font-weight: 400; src: url(./fonts/Marianne-Regular.woff2) format("woff2"),url(./fonts/Marianne-Regular.woff) format("woff") }
-@font-face { font-family: Marianne; font-style: italic; font-weight: 400; src: url(./fonts/Marianne-Regular_Italic.woff2) format("woff2"),url(./fonts/Marianne-Regular_Italic.woff) format("woff") }
-@font-face { font-family: Marianne; font-style: normal; font-weight: 500; src: url(./fonts/Marianne-Medium.woff2) format("woff2"),url(./fonts/Marianne-Medium.woff) format("woff") }
-@font-face { font-family: Marianne; font-style: italic; font-weight: 500; src: url(./fonts/Marianne-Medium_Italic.woff2) format("woff2"),url(./fonts/Marianne-Medium_Italic.woff) format("woff") }
-@font-face { font-family: Marianne; font-style: normal; font-weight: 700; src: url(./fonts/Marianne-Bold.woff2) format("woff2"),url(./fonts/Marianne-Bold.woff) format("woff") }
-@font-face { font-family: Marianne; font-style: italic; font-weight: 700; src: url(./fonts/Marianne-Bold_Italic.woff2) format("woff2"),url(./fonts/Marianne-Bold_Italic.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: normal; font-weight: 300; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Light.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Light.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 300; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Light_Italic.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Light_Italic.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: normal; font-weight: 400; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Regular.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Regular.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 400; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Regular_Italic.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Regular_Italic.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: normal; font-weight: 500; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Medium.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Medium.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 500; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Medium_Italic.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Medium_Italic.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: normal; font-weight: 700; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Bold.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Bold.woff) format("woff") }
+@font-face { font-family: Marianne; font-style: italic; font-weight: 700; src: url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Bold_Italic.woff2) format("woff2"),url(https://ignf-ma-carte.github.io/mcviewer/fonts/Marianne-Bold_Italic.woff) format("woff") }
 
-font-family: Marianne;
-`
+body {
+  font-family: Marianne;
+}
+`,
+cssRoundButton: `/* Boutons ronds */
+story .ol-control,
+story .ol-control button {
+  border-radius: 1em;
+}`
 });
 
 /* Ajout onglet au Menu */
@@ -183,7 +195,7 @@ ongletMEF.querySelector('[data-attr="css"] button').addEventListener('click', ()
   helpData(content);
   // Story value
   content.querySelector('.css').value = story.get('css') || '';
-  // Exmaples
+  // Examples
   content.querySelectorAll('select option').forEach(o => {
     o.value = _T(o.value)
   })
@@ -191,6 +203,19 @@ ongletMEF.querySelector('[data-attr="css"] button').addEventListener('click', ()
     content.querySelector('textarea').value = e.target.value.replace(/\\n/g,"\n");
     // reset
     e.target.value = ""
+  })
+  // Prevent tab
+  content.querySelector('textarea').addEventListener('keydown', e => {
+    if (e.keyCode == 9) {
+      const start = e.target.selectionStart;
+      const end = e.target.selectionEnd;
+      // set textarea value to: text before caret + tab + text after caret
+      e.target.value = e.target.value.substring(0, start) + '\t' + e.target.value.substring(end);
+      // put caret at right position again
+      e.target.selectionStart = e.target.selectionEnd = start + 1;
+  
+      e.preventDefault();
+    }
   })
 })
 

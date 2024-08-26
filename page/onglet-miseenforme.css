@@ -101,6 +101,7 @@
   max-height: calc(100dvh - 15em);
   display: block;
   font-size: 1em;
+  tab-size: 2;
 }
 .ol-ext-dialog.dialogCSS pre[aria-hidden="true"] {
   display: none;
