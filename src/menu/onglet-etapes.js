@@ -19,6 +19,7 @@ charte.addMenuTab('steps', 'fi-step', 'Etapes', ongletEtapes);
 const checkAnim = ongletEtapes.querySelector("[data-attr = 'animation']")
 checkAnim.addEventListener('change',(e) => {
   story.set('animStep', e.target.checked);
+  ongletEtapes.dataset.anim = story.get('animStep')
 });
 
 /* bouton noStep */
@@ -32,6 +33,7 @@ checkNoStep.addEventListener('change',(e) => {
 
 /*Bouton affichage titre*/
 const showtitle = ongletEtapes.querySelector('[data-attr="displayTitle"]');
+const selTransition = ongletEtapes.querySelector('[data-attr="animStep"]');
 
 /* Zones de texte */
 const inputTitle = ongletEtapes.querySelector('[data-attr="title"]');
@@ -77,6 +79,7 @@ function edit (step) {
     inputTitle.value = step.title;
     editor.setValue(step.content);
     showtitle.checked = step.showTitle
+    selTransition.value = step.animation || 'moveTo';
   } else {
     inputTitle.value = '';
     editor.setValue('')
@@ -131,6 +134,7 @@ function updateStep(step) {
   
   step.showTitle = showtitle.checked;
   step.content = inputContent.value;
+  step.animation = selTransition.value;
   step.layerIds = layers;
   step.center = center;
   step.zoom = zoom;
@@ -176,7 +180,9 @@ const stepsInput = new InputCollection({
   target: ongletEtapes.querySelector('.list'),
   collection: story.getSteps(),
   getTitle: (item) => {
+    console.log(item)
     const elem = element.create('DIV', {
+      "data-anim": item.animation || 'moveTo',
       html: item.title
     })
     element.create('I', { 
@@ -229,6 +235,7 @@ story.on('read', () => {
     story.set('animStep', true);
   }
   checkAnim.checked = story.get('animStep');
+  ongletEtapes.dataset.anim = !!story.get('animStep');
   checkNoStep.checked = story.get('noStep');
   showtitle.checked = true;
   ongletEtapes.setAttribute('data-show', 'title');

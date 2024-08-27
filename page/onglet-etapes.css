@@ -45,3 +45,47 @@
   margin: 0.3em;
   display: inline-block;
 }
+
+[data-role="menu-tab"] .tab.steps [data-anim="false"] .transition {
+  pointer-events: none;
+  opacity: 0.5;
+}
+[data-role="menu-tab"] .tab.steps .transition label {
+  display: inline-block;
+  width: 6em;
+  text-align: right;
+  margin: 0;
+  padding-right: .5em;
+  box-sizing: border-box;
+}
+[data-role="menu-tab"] .transition select {
+  display: inline-block;
+  width: calc(100% - 6em);
+  margin: 0;
+}
+[data-role="menu-tab"] .tab.steps .ol-collection-list [data-anim="none"]:before {
+  content: "\ea8a";
+  font-family: font-gis;
+}
+[data-role="menu-tab"] .tab.steps .ol-collection-list [data-anim="moveTo"]:before {
+  content: "\ea39";
+  font-family: font-ign;
+}
+[data-role="menu-tab"] .tab.steps .ol-collection-list [data-anim="flyTo"]:before {
+  content: "\f072";
+  font-family: FontAwesome;
+}
+[data-role="menu-tab"] .tab.steps [data-anim]:before {
+  width: 1em;
+  display: inline-block;
+  text-align: center;
+  margin-right: .5em;
+  color: #3993f3;
+}
+[data-role="menu-tab"] .tab.steps .ol-select [data-anim]:before {
+  color: #e1eefd;
+}
+[data-role="menu-tab"] .tab.steps [data-anim="false"] [data-anim]:before {
+  content: "\ea8a";
+  font-family: font-gis;
+}
