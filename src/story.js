@@ -6,6 +6,7 @@ import api from 'mcutils/api/api';
 import { connectDialog } from 'mcutils/charte/macarte';
 import Carte from 'mcutils/Carte';
 import dialogMessage from 'mcutils/dialog/dialogMessage';
+import team from 'mcutils/api/team';
 
 /**
  * StoryMap de départ
@@ -52,7 +53,20 @@ if (editID) {
         if (resp.error) {
           dialog.showAlert('Aucune carte à éditer...')
         } else {
-          story.load(resp);
+          if (team.getId() !== resp.organization_id) {
+            api.getTeams(teams => {
+              const t = teams.find(e => e.public_id === resp.organization_id)
+              // Enable and change team
+              const savefn = team.canChange;
+              team.canChange = null;
+              team.set(t, true);
+              team.canChange = savefn;
+              // load carte
+              story.load(resp);
+            })
+          } else {
+            story.load(resp)
+          }
         }
       })
     }, 200)
