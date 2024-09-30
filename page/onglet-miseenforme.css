@@ -72,6 +72,7 @@
 }
 [data-role="menu-tab"] [data-attr="css"] button {
   width: auto;
+  display: none;
 }
 
 /* Dialog */
