@@ -180,7 +180,6 @@ const stepsInput = new InputCollection({
   target: ongletEtapes.querySelector('.list'),
   collection: story.getSteps(),
   getTitle: (item) => {
-    console.log(item)
     const elem = element.create('DIV', {
       "data-anim": item.animation || 'moveTo',
       html: item.title

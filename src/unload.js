@@ -9,7 +9,7 @@ import team  from 'mcutils/api/team';
 // Prevent unload
 let dirty = false;
 window.onbeforeunload = function() {
-  console.log('BEFOREUNLOAD', dirty)
+  // console.log('BEFOREUNLOAD', dirty)
   return dirty ? _T('hasChanged') : null;
 }
 
