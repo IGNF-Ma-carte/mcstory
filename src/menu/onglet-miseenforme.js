@@ -44,6 +44,13 @@ body {
   font-family: Marianne;
 }
 `,
+cssGFont: `/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+
+body {
+  font-family: Kablammo;
+}
+`,
 cssRoundButton: `/* Boutons ronds */
 story .ol-control,
 story .ol-control button {
