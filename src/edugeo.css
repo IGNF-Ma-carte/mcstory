@@ -1,0 +1,9 @@
+[data-user-role="ROLE_EDUGEO_ELEVE ROLE_USER"] .fi-save,
+[data-user-role="ROLE_EDUGEO_ELEVE ROLE_USER"] .fi-open {
+  display: none;
+}
+
+[data-user-role="ROLE_EDUGEO_ELEVE ROLE_USER"][data-team-role="editor"] .fi-save,
+[data-user-role="ROLE_EDUGEO_ELEVE ROLE_USER"][data-team-role="editor"] .fi-open {
+  display: block;
+}

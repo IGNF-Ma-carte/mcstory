@@ -5,6 +5,7 @@ import story from './story'
 import './unload'
 
 import './index.css'
+import './edugeo.css'
 
 import './tools/tools'
 import './menu/menu'
