@@ -53,6 +53,9 @@ if (editID) {
         if (resp.error) {
           dialog.showAlert('Aucune carte à éditer...')
         } else {
+          // Check edit id (teams users)
+          if (!resp.edit_id) resp.edit_id = editID;
+          // Check teams and change if needed
           if (team.getId() !== resp.organization_id) {
             api.getTeams(teams => {
               const t = teams.find(e => e.public_id === resp.organization_id)
