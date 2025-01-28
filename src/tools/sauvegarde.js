@@ -7,6 +7,7 @@ import story from '../story';
 import notification from 'mcutils/dialog/notification';
 import api from 'mcutils/api/api';
 import team from 'mcutils/api/team';
+import { connectDialog } from 'mcutils/charte/macarte';
 
 /* Sauvegarde carte */
 function save(story) {
@@ -27,8 +28,20 @@ function save(story) {
   // get error / data on save
   function onsave(resp) {
     if (resp.error) {
-      //dialogMessage.showAlert('Impossible de sauvegarder la carte...')
-      dialogMessage.showAlert(resp.statusText + '<br/>' + resp.xhttp.response)
+      switch (resp.status) {
+        case 401: {
+          dialogMessage.hide();
+          connectDialog(() => {
+            save(story);
+          });
+          break;
+        }
+        default: {
+          dialogMessage.showAlert('Impossible de sauvegarder la carte...<br/>' + resp.statusText + '<br/>' + resp.xhttp.response)
+          break;
+        }
+      }
+
     } else {
       dialogMessage.hide();
       notification.show('sauvegarde réussie', 1500);
