@@ -207,7 +207,14 @@ ongletMEF.querySelector('[data-attr="css"] button').addEventListener('click', ()
     o.value = _T(o.value)
   })
   content.querySelector('select').addEventListener('change', e => {
-    content.querySelector('textarea').value = e.target.value.replace(/\\n/g,"\n");
+    const tarea = content.querySelector('textarea');
+    const current = tarea.value;
+    const css = e.target.value.replace(/\\n/g,"\n").replace(/\n$/,'');
+    tarea.value = css + '\n\n' +current;
+    tarea.focus();
+    tarea.scrollTop = 0
+    tarea.selectionStart = 0;
+    tarea.selectionEnd = css.length;
     // reset
     e.target.value = ""
   })
