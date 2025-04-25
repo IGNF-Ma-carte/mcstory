@@ -75,3 +75,6 @@
 font-size: 2rem;
 }
 
+.ol-ext-dialog.layer-info > form h2 span {
+  display: inline-block;
+}

@@ -7,6 +7,7 @@ import { connectDialog } from 'mcutils/charte/macarte';
 import Carte from 'mcutils/Carte';
 import dialogMessage from 'mcutils/dialog/dialogMessage';
 import team from 'mcutils/api/team';
+import MDEditor from 'mcutils/md/MDEditor';
 
 /**
  * StoryMap de départ
@@ -16,6 +17,8 @@ const story = new StoryMap({
   target: document.querySelector('[data-role="map"]'),
   key: '0gd4sx9gxx6ves3hf3hfeyhw'
 });
+
+MDEditor.setCarte(story)
 
 // Reset story (fire read event)
 setTimeout(() => story.reset());
