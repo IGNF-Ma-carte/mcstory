@@ -52,7 +52,7 @@
 }
 [data-role="menu-tab"] .tab.steps .transition label {
   display: inline-block;
-  width: 6em;
+  width: 7em;
   text-align: right;
   margin: 0;
   padding-right: .5em;
@@ -60,7 +60,7 @@
 }
 [data-role="menu-tab"] .transition select {
   display: inline-block;
-  width: calc(100% - 6em);
+  width: calc(100% - 7em);
   margin: 0;
 }
 [data-role="menu-tab"] .tab.steps .ol-collection-list [data-anim="none"]:before {
