@@ -20,3 +20,8 @@
 [data-role="menu-tab"] .tab.options select {
   margin: 0;
 }
+
+/* Mapzone */
+.ol-ext-dialog.mc-mapzone .ol-ext-check {
+  display: none;
+}
