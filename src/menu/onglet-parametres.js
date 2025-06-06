@@ -30,6 +30,10 @@ displayAttributes.forEach(v => {
   }
 });
 
+// Mapzone
+ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change', e => {
+  story.getCarte().setMapZone(e.target.value, false)
+})
 // Layerswitcher
 ongletParametres.querySelector('[data-attr="switcherModel"]').addEventListener('change', (e) => {
   story.setControl('layerSwitcher', e.target.value !== 'none');

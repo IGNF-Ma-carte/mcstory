@@ -95,6 +95,10 @@ Le gestionnaire de couche permet à l'utilisateur de modifier l'affichage des co
 - Le **gestionnaire thématique** n'affiche que les couches visibles à l'ouverture et propose à l'utilisateur d'ajouter les autres couches à la demande. Cette option est particulièrement pratique si la carte propose un grand nombre de couches pour ne pas surcharger la liste des couches disponibles.
 NB: cette dernière option n'est effective que lors de l'affichage finale de la carte.
 `,
+infoMapzone: `# :fi-map-background: Outils de déplacement
+----
+Vous pouvez ajouter un outil pour déplacer la carte à un endroit spécifique, sur le territoire métropolitain ou le Dom/TOM.
+`,
 infoITools: `# Outils (visualisation)
 ----
 Vous pouvez proposer des outils sur la page de visualisation pour prendre mesurer des distances ou des surface sur la carte ou des outils de dessin.
