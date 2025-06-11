@@ -43,6 +43,7 @@ ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change
     dialogImportFile(e => {
       let nb = 0
       const zones = [];
+      console.log(e.features);
       (e.features || []).forEach((f, i) => {
         let ext = f.getGeometry().getExtent()
         if (ext[0]===ext[2] || ext[1] === ext[3]) {
