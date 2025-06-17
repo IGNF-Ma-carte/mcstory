@@ -30,12 +30,13 @@
   width: calc(100% - 2em);
 }
 [data-role="menu-tab"] .tab.options [data-zone] button {
-  font-size: 1em;
-  width: 2em;
+  font-size: 1.3em;
+  width: 1.5em;
   border: 0;
   background: none;
-  height: 3em;
+  height: 2em;
 }
 [data-role="menu-tab"] .tab.options [data-zone="none"] button {
-  display: none;
+  pointer-events: none;
+  opacity: 0.3;
 }

@@ -98,7 +98,7 @@ NB: cette dernière option n'est effective que lors de l'affichage finale de la 
 infoMapzone: `# :fi-map-background: Outils de déplacement
 ----
 Vous pouvez ajouter un outil pour déplacer la carte à sur des zones de focalisation.
-L'outil propose par défaut les Déparements d'outre-mer (DOM) et les Territoires d'outre-mer (TOM), mais vous pouvez aussi importer une liste d'objets sur lesquels vous voulez vous focaliser (via un fichier géographique GeoJSON, GPX ou KML). Dans ce cas, les objets doivent avoir un attribut *nom* (ou *name*) qui s'affichera dans la liste.
+L'outil propose par défaut les Déparements d'outre-mer (DOM) et les Territoires d'outre-mer (TOM), mais vous pouvez aussi importer une liste d'objets sur lesquels vous voulez vous focaliser (via un fichier géographique GeoJSON, GPX ou KML). Dans ce cas, les objets doivent avoir un attribut *nom* (ou *name*) qui s'affichera dans la liste, ils peuvent également avoir un attribut *rank* indiquant leur place dans le menu.
 *NB : pour plus de lisibilité, limitez le nombre de zones de focalisation au risque de ne pas pouvoir les afficher correctement.*
 `,
 infoITools: `# Outils (visualisation)

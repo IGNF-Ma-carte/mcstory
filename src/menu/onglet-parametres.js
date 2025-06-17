@@ -3,7 +3,6 @@ import charte from 'mcutils/charte/macarte'
 import dialogImportFile from 'mcutils/dialog/dialogImportFile'
 import ol_ext_element from 'ol-ext/util/element'
 import {buffer as buffer_extent, isEmpty } from 'ol/extent'
-import {transformExtent} from 'ol/proj'
 import {fromExtent} from 'ol/geom/Polygon'
 import Feature from 'ol/Feature';
 import GeoJSONFormat from 'ol/format/GeoJSON'
@@ -48,8 +47,7 @@ ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change
   if (what === 'custom') {
     dialogImportFile(e => {
       let nb = 0
-      const zones = [];
-      console.log(e.features);
+      let zones = [];
       (e.features || []).forEach((f, i) => {
         let ext = f.getGeometry().getExtent()
         if (ext[0]===ext[2] || ext[1] === ext[3]) {
@@ -59,10 +57,12 @@ ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change
           nb++;
           zones.push({
             title: f.get('name') || f.get('nom') || 'zone '+i,
+            rank: f.get('rank') || 0,
             extent: ext
           })
         }
       })
+      zones = zones.sort((a,b) => parseFloat(a.rank) - parseFloat(b.rank))
       if (nb > 0) {
         story.setControl('mapzone', { zones: zones, collapsed: false })
         notification.show('Chargement des zones : ' + nb + ' / ' + (e.features.length || 0))
@@ -84,11 +84,11 @@ ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change
 })
 // Save zones
 ongletParametres.querySelector('li[data-zone] button').addEventListener('click', e => {
-  console.log(story.getCarte().getControl(''))
   const features = []
-  story.getCarte().getControl('mapzone').getMaps().forEach(m => {
+  story.getCarte().getControl('mapzone').getMaps().forEach((m,i) => {
     const f = new Feature(fromExtent(m.get('zone').extent))
     f.set('name', m.get('zone').title)
+    f.set('rank', i+1)
     features.push(f);
   })
   const gjson = (new GeoJSONFormat).writeFeatures(features)
