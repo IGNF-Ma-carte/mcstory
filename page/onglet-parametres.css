@@ -25,3 +25,17 @@
 .ol-ext-dialog.mc-mapzone .ol-ext-check {
   display: none;
 }
+
+[data-role="menu-tab"] .tab.options [data-zone] select {
+  width: calc(100% - 2em);
+}
+[data-role="menu-tab"] .tab.options [data-zone] button {
+  font-size: 1em;
+  width: 2em;
+  border: 0;
+  background: none;
+  height: 3em;
+}
+[data-role="menu-tab"] .tab.options [data-zone="none"] button {
+  display: none;
+}

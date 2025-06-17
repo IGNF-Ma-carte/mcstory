@@ -3,6 +3,11 @@ import charte from 'mcutils/charte/macarte'
 import dialogImportFile from 'mcutils/dialog/dialogImportFile'
 import ol_ext_element from 'ol-ext/util/element'
 import {buffer as buffer_extent, isEmpty } from 'ol/extent'
+import {transformExtent} from 'ol/proj'
+import {fromExtent} from 'ol/geom/Polygon'
+import Feature from 'ol/Feature';
+import GeoJSONFormat from 'ol/format/GeoJSON'
+import { saveAs } from 'file-saver';
 
 import '../../page/onglet-parametres.css'
 import html from '../../page/onglet-parametres.html';
@@ -39,6 +44,7 @@ displayAttributes.forEach(v => {
 ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change', e => {
   // Get zone
   const what = e.target.value;
+  ongletParametres.querySelector('li[data-zone]').dataset.zone = what || 'none';
   if (what === 'custom') {
     dialogImportFile(e => {
       let nb = 0
@@ -76,6 +82,18 @@ ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change
     story.setControl('mapzone', { zones: what, disabled: false })
   }
 })
+// Save zones
+ongletParametres.querySelector('li[data-zone] button').addEventListener('click', e => {
+  console.log(story.getCarte().getControl(''))
+  const features = []
+  story.getCarte().getControl('mapzone').getMaps().forEach(m => {
+    const f = new Feature(fromExtent(m.get('zone').extent))
+    f.set('name', m.get('zone').title)
+    features.push(f);
+  })
+  const gjson = (new GeoJSONFormat).writeFeatures(features)
+  saveAs(new Blob([gjson], {type: "text/plain;charset=utf-8"}), 'zones.geojson')
+})
 // Layerswitcher
 ongletParametres.querySelector('[data-attr="switcherModel"]').addEventListener('change', (e) => {
   story.setControl('layerSwitcher', e.target.value !== 'none');
@@ -108,8 +126,10 @@ story.on('read', () => {
   if (story.get('controls').mapzone) {
     const zones = (story.get('controls').mapzone.zones);
     ongletParametres.querySelector('[data-attr="mapzone"]').value = Array.isArray(zones) ? 'custom' : (zones || '');
+    ongletParametres.querySelector('li[data-zone]').dataset.zone = Array.isArray(zones) ? 'custom' : (zones || 'none');
   } else {
     ongletParametres.querySelector('[data-attr="mapzone"]').value = '';
+    ongletParametres.querySelector('li[data-zone]').dataset.zone = 'none';
   }
   // Layer switcher
   ongletParametres.querySelector('[data-attr="switcherModel"]').value = story.get('controls').switcherModel || (story.get('controls').layerSwitcher ? 'default' : 'none');
