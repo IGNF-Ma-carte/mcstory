@@ -84,6 +84,7 @@ ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change
 })
 // Save zones
 ongletParametres.querySelector('li[data-zone] button').addEventListener('click', e => {
+  if (!story || !story.getCarte()) return;
   const features = []
   story.getCarte().getControl('mapzone').getMaps().forEach((m,i) => {
     const f = new Feature(fromExtent(m.get('zone').extent))
