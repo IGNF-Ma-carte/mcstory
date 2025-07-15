@@ -79,7 +79,7 @@ ongletParametres.querySelector('[data-attr="mapzone"]').addEventListener('change
     })
     dialog.getContentElement().appendChild(ol_ext_element.create('I', { text: "Choisissez un fichier contenant des zones de focalisation." }))
   } else {
-    story.setControl('mapzone', { zones: what, disabled: false })
+    story.setControl('mapzone', { zones: what })
   }
 })
 // Save zones
