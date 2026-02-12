@@ -31,6 +31,13 @@ checkNoStep.addEventListener('change',(e) => {
   story.setStep(story.currentStep);
 });
 
+/* bouton foldup */
+const checkFoldup = ongletEtapes.querySelector("[data-attr = 'foldup']")
+checkFoldup.addEventListener('change',(e) => {
+  story.setFoldup(e.target.checked);
+  // Update story
+});
+
 /*Bouton affichage titre*/
 const showtitle = ongletEtapes.querySelector('[data-attr="displayTitle"]');
 const selTransition = ongletEtapes.querySelector('[data-attr="animStep"]');
@@ -236,6 +243,7 @@ story.on('read', () => {
   checkAnim.checked = story.get('animStep');
   ongletEtapes.dataset.anim = !!story.get('animStep');
   checkNoStep.checked = story.get('noStep');
+  checkFoldup.checked = story.get('foldup');
   showtitle.checked = true;
   ongletEtapes.setAttribute('data-show', 'title');
   // Show first step
