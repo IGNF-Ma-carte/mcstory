@@ -89,3 +89,9 @@
   content: "\ea8a";
   font-family: font-gis;
 }
+
+[data-role="menu-tab"] .tab.steps [data-attr="noStep"] {
+  width: calc(100% - 3.5em);
+  display: inline-block;
+  vertical-align: middle;
+}

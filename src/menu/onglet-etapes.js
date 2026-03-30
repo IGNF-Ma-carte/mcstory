@@ -23,13 +23,22 @@ checkAnim.addEventListener('change',(e) => {
 });
 
 /* bouton noStep */
-const checkNoStep = ongletEtapes.querySelector("[data-attr = 'noStep']")
-checkNoStep.addEventListener('change',(e) => {
-  story.set('noStep', e.target.checked);
-  // Update model
-  story.setModel();
-  story.setStep(story.currentStep);
+const doStep = ongletEtapes.querySelector("[data-attr = 'noStep']")
+if (doStep.tagName === 'SELECT') {
+  doStep.addEventListener('change',(e) => {
+    story.set('noStep', e.target.value);
+    // Update model
+    story.setModel();
+    story.setStep(story.currentStep);
 });
+} else {
+  doStep.addEventListener('change',(e) => {
+    story.set('noStep', e.target.checked);
+    // Update model
+    story.setModel();
+    story.setStep(story.currentStep);
+  });
+}
 
 /* bouton foldup */
 const checkFoldup = ongletEtapes.querySelector("[data-attr = 'foldup']")
@@ -242,7 +251,12 @@ story.on('read', () => {
   }
   checkAnim.checked = story.get('animStep');
   ongletEtapes.dataset.anim = !!story.get('animStep');
-  checkNoStep.checked = story.get('noStep');
+  if (doStep.tagName === 'SELECT') {
+    console.log(['select', doStep])
+    doStep.value = String(story.get('noStep') || 'step');
+  } else {
+    doStep.checked = story.get('noStep');
+  }
   checkFoldup.checked = story.get('foldup');
   showtitle.checked = true;
   ongletEtapes.setAttribute('data-show', 'title');
