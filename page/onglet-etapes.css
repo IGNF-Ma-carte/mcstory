@@ -91,7 +91,7 @@
 }
 
 [data-role="menu-tab"] .tab.steps [data-attr="noStep"] {
-  width: calc(100% - 7em);
+  width: calc(100% - 8em);
   display: inline-block;
   vertical-align: middle;
 }

@@ -252,7 +252,6 @@ story.on('read', () => {
   checkAnim.checked = story.get('animStep');
   ongletEtapes.dataset.anim = !!story.get('animStep');
   if (doStep.tagName === 'SELECT') {
-    console.log(['select', doStep])
     doStep.value = String(story.get('noStep') || 'step');
   } else {
     doStep.checked = story.get('noStep');

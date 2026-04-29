@@ -40,19 +40,24 @@ Choisissez ici la ou les cartes sur lesquelles vous voulez raconter une histoire
 :fa-warning:2x left:#f18345: Vous devez au préalable avoir créer une carte avec le module d'édition (choisir les fonds et ajouté des données).
 C'est cette carte qui servira de support à votre histoire.
 `,
-infoNoStep: `# Ne pas afficher les étapes
+infoNoStep: `# Affichage des étapes
+*Les étapes s'affichent dans le volet latéral.*
 ----
-Vous pouvez masquer les étapes. Dans ce cas, il n'est plus possible de changer d'étape avec les flèches de direction.
+Plusieurs possiblilités sont offertes pour passer d'une étape à l'autre : un bandeau de navigation avec des flèches, un bandeau sous forme d'onglets (dans le volet ou en haut de la carte dans le bandeau de titre) ou via des liens de navigation (stepTo en Markdown).
+Vous pouvez également choisir de ne pas afficher les étapes dans ce cas vous devrez ajouter des liens de navigation en Markdown dans vos étape ou dans les bulles sur vos objets.
+
+## Ajouter des liens de navigation en Markdown
 Vous devez inclure des lien \`app://stepTo?numero_etape\` pour passer à une étape précise, sous la forme : 
 \`\`\`md
 [Aller à l'étape 3]&lpar;app://stepTo?2 étape 3)
 \`\`\`
-Vous pouvez également utiliser un mot clé pour aller à l'étape suivante (next), précédente (prev) ou la première étape (first) ou la dernière (last).
+Vous pouvez également utiliser un mot clé pour aller à l'étape suivante (next), précédente (prev), la première étape (first) ou la dernière (last). toc permet d'accéder à la table des matières (Table of content).
 \`\`\`md
 [Retour au début]&lpar;app://stepTo?first recommncer)
 [Etape précédente]&lpar;app://stepTo?prev précédent)
 [Etape suivante]&lpar;app://stepTo?next suivant)
 [Aller à la fin]&lpar;app://stepTo?last fin)
+[Table des matières]&lpar;app://stepTo?toc Table des matières)
 \`\`\`
 `,
 infoModele: `# Raconter une histoire
