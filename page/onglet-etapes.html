@@ -12,23 +12,25 @@
       <div class="list"></div>
     </li>
     <li>
+      <span>Etapes :</span>
+      <select data-attr="noStep">
+        <option value="true">ne pas afficher</option>
+        <option value="step">naviguer avec les flèches</option>
+        <option value="onglet">onglets dans le volet</option>
+        <option value="title">onglets dans le titre</option>
+      </select>
+      <span data-help="infoNoStep small"></span>
+      <!--
+        <label class="ol-ext-check ol-ext-checkbox" data-help="infoNoStep small">  
+          <input data-attr="noStep" type="checkbox"><span></span>
+          Ne pas afficher les étapes
+        </label>
+        -->
+    </li>
+    <li>
       <label class="ol-ext-check ol-ext-checkbox">  
         <input data-attr="animation" type="checkbox"><span></span>
         Animer entre les étapes
-      </label>
-    </li>  
-    <li>
-      <!--
-      <select data-attr="noStep">
-        <option value="step">Naviguer entre les étapes</option>
-        <option value="true">Ne pas afficher les étapes</option>
-        <option value="onglet">Etapes en onglet</option>
-      </select>
-      <span data-help="infoNoStep small"></span>
-      -->
-      <label class="ol-ext-check ol-ext-checkbox" data-help="infoNoStep small">  
-        <input data-attr="noStep" type="checkbox"><span></span>
-        Ne pas afficher les étapes
       </label>
     </li>  
     <li>
