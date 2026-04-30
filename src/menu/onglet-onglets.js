@@ -31,9 +31,7 @@ const iCollection = new InputCollection({
   target: ongletOnglets.querySelector('.list'),
   collection: story.tabs,
   getTitle: (item) => {
-    const elem = element.create('DIV', {
-      parent : ongletOnglets.querySelector('.list')
-    })
+    const elem = element.create('DIV')
     if (item.title) elem.innerText = item.title;
     else elem.innerHTML = '<i>sans titre</i>';
     // Refresh tab
